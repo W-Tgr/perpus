@@ -66,41 +66,40 @@
                                         {{ $item->tahun_rilis }}</td>
 
                                     <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900 flex space-x-2">
-                                        @if(auth()->user()->role !== 'siswa')
-                                        {{-- <a href="{{ route('buku.edit', $item->id) }}"
+                                        @if (auth()->user()->role !== 'siswa')
+                                            {{-- <a href="{{ route('buku.edit', $item->id) }}"
                                             class="text-indigo-600 hover:text-indigo-900">Edit</a> --}}
 
-                                        <x-confirm-delete-modal>
-                                            <x-slot name="trigger">
-                                                <button @click="isOpen = true"
-                                                    class="text-red-600 hover:text-red-900">Hapus</button>
-                                            </x-slot>
+                                            <x-confirm-delete-modal>
+                                                <x-slot name="trigger">
+                                                    <button @click="isOpen = true"
+                                                        class="text-red-600 hover:text-red-900">Hapus</button>
+                                                </x-slot>
 
-                                            <x-slot name="title">
-                                                Konfirmasi Hapus
-                                            </x-slot>
+                                                <x-slot name="title">
+                                                    Konfirmasi Hapus
+                                                </x-slot>
 
-                                            <x-slot name="content">
-                                                Apakah Anda yakin ingin menghapus buku ini?
-                                            </x-slot>
+                                                <x-slot name="content">
+                                                    Apakah Anda yakin ingin menghapus buku ini?
+                                                </x-slot>
 
-                                            <x-slot name="footer">
-                                                <form id="deleteForm-{{ $item->id }}"
-                                                    action="{{ route('buku.destroy', $item->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <x-primary-button type="submit"
-                                                        class="bg-red-600 hover:bg-red-700">
-                                                        Hapus
-                                                    </x-primary-button>
-                                                    <x-secondary-button @click="isOpen = false">
-                                                        Batal
-                                                    </x-secondary-button>
-                                                </form>
+                                                <x-slot name="footer">
+                                                    <form id="deleteForm-{{ $item->id }}"
+                                                        action="{{ route('buku.destroy', $item->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <x-primary-button type="submit"
+                                                            class="bg-red-600 hover:bg-red-700">
+                                                            Hapus
+                                                        </x-primary-button>
+                                                        <x-secondary-button @click="isOpen = false">
+                                                            Batal
+                                                        </x-secondary-button>
+                                                    </form>
 
-                                            </x-slot>
-                                        </x-confirm-delete-modal>
+                                                </x-slot>
+                                            </x-confirm-delete-modal>
                                         @endif
 
                                         {{-- <a href="{{ route('buku.show', $item->id) }}"

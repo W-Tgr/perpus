@@ -7,63 +7,130 @@
     <title>Perpustakaan</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset(Storage::url($setting->favicon ?? 'favicons/favicon.ico')) }}"
         type="image/x-icon">
     <!-- Styles -->
     <link rel="stylesheet" href="/assets/app.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
 
+        .card {
+            background: #fff;
+            color: #333;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #6b73ff, #9d50bb);
+            transform: scale(1.05);
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-top: 2rem;
+        }
+
+        .dark-mode-toggle span {
+            margin-left: 0.5rem;
+        }
+
+        .dark-mode {
+            background: #1e293b;
+            color: #cbd5e1;
+        }
+
+        .hero {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .flex-container a {
+            flex: 1;
+            max-width: 200px;
+            text-align: center;
+        }
+    </style>
 </head>
 
-<body class="antialiased text-gray-100 bg-white-900 dark:bg-gray-900">
+<body class="antialiased">
     <div class="flex items-center justify-center min-h-screen">
         <div class="container mx-auto">
-            <div class="flex flex-col items-center justify-between md:flex-row">
-                <a href="/" class="flex items-center">
-                    <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
-                </a>
+            <!-- Header -->
 
 
+            <!-- Hero Section -->
+            <div class="hero">
+                <h1>Selamat Datang di Perpustakaan UMY</h1>
+                <p>Akses berbagai layanan perpustakaan kami dengan mudah dan nyaman.</p>
 
-            </div>
-
-            <div class="flex flex-col items-center mt-16">
-                <h1 class="mb-6 text-3xl font-semibold text-center text-gray-800 dark:text-white">Selamat Datang Di
-                    Perpustakaan UMY</h1>
-                <p class="max-w-md text-center text-gray-100 text-gray-800 dark:text-white">Masuk untuk mengakses
-                    layanan perpustakaan.</p>
-                <div class="flex flex-col mt-8 space-y-4 md:flex-row md:space-y-0 md:space-x-4">
-                    <a href="{{ route('login') }}"
-                        class="flex items-center justify-center w-full p-4 space-x-2 transition duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl md:w-auto">
-                        <div class="flex items-center justify-center w-20 h-12 bg-blue-500 rounded-full">
-                            <img src="https://www.svgrepo.com/show/408745/login-sign-in-user-entrance-account.svg"
-                                alt="Login Icon" class="w-8 h-8">
-                        </div>
-
-                        <span class="text-xl font-semibold text-gray-900">Masuk</span>
+                <!-- Buttons -->
+                <div class="flex-container">
+                    <a href="{{ route('login') }}" class="button">
+                        <img src="https://www.svgrepo.com/show/408745/login-sign-in-user-entrance-account.svg"
+                            alt="Login Icon" class="w-6 h-6 mr-2">
+                        Masuk
                     </a>
-                    <a href="{{ route('register') }}"
-                        class="flex items-center justify-center w-full p-4 mt-4 space-x-2 transition duration-300 bg-white rounded-lg shadow-lg md:mt-0 hover:shadow-xl md:w-auto">
-                        <div class="flex items-center justify-center w-20 h-12 bg-blue-500 rounded-full">
-                            <img src="https://www.svgrepo.com/show/515135/book.svg" alt="Register Icon" class="w-8 h-8">
-                        </div>
-
-                        <span class="text-xl font-semibold text-gray-900">Daftar</span>
+                    <a href="{{ route('register') }}" class="button">
+                        <img src="https://www.svgrepo.com/show/515135/book.svg" alt="Register Icon"
+                            class="w-6 h-6 mr-2">
+                        Daftar
                     </a>
                 </div>
             </div>
 
-            <!-- Toggle Switch for Dark Mode -->
 
-            <div class="flex items-center justify-between mt-16">
-
-
-            </div>
         </div>
     </div>
-</body>
-<script src="/assets/app.js"></script>
 
+
+</body>
 
 </html>
